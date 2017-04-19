@@ -80,6 +80,7 @@ module JSONAPI
 
       page_options = {}
       if (JSONAPI.configuration.top_level_meta_include_record_count ||
+        context[:top_level_meta_include_page_count] ||
         (paginator && paginator.class.requires_record_count))
         page_options[:record_count] = resource_klass.find_count(verified_filters,
                                                                 context: context,
